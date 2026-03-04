@@ -7,7 +7,7 @@ export const siteConfig = {
   url: "https://kodokanjudosa.org",
   contact: {
     email: "info@kodokanjudosa.org",
-    phone: "(08) 8000 0000",
+    phone: "0416 115 195",
     address: "South Australia",
   },
   social: {

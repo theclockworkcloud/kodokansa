@@ -47,7 +47,7 @@ export default function HomePage() {
               Our Clubs
             </h2>
             <p className="mt-2 text-kodo-gray-500">
-              Three clubs across Adelaide — find one near you.
+              Five clubs across Adelaide — find one near you.
             </p>
           </div>
           <Link

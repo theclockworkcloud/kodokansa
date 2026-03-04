@@ -1,13 +1,40 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { supabase } from "@/lib/supabase";
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // Static form — integrate with Formspree or similar later
+    setSubmitting(true);
+    setError(null);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    const { error: insertError } = await supabase
+      .from("kodokan_contacts")
+      .insert([
+        {
+          name: formData.get("name") as string,
+          email: formData.get("email") as string,
+          subject: formData.get("subject") as string,
+          message: formData.get("message") as string,
+        },
+      ]);
+
+    setSubmitting(false);
+
+    if (insertError) {
+      setError("Something went wrong. Please try again or contact us directly.");
+      console.error("Contact form error:", insertError);
+      return;
+    }
+
     setSubmitted(true);
   }
 
@@ -46,6 +73,12 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
+      {error && (
+        <div className="rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+          {error}
+        </div>
+      )}
+
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label
@@ -59,7 +92,8 @@ export default function ContactForm() {
             id="name"
             name="name"
             required
-            className="w-full rounded border border-kodo-gray-200 px-4 py-2.5 text-sm text-kodo-black placeholder:text-kodo-gray-400 focus:border-kodo-gold focus:ring-1 focus:ring-kodo-gold focus:outline-none"
+            disabled={submitting}
+            className="w-full rounded border border-kodo-gray-200 px-4 py-2.5 text-sm text-kodo-black placeholder:text-kodo-gray-400 focus:border-kodo-gold focus:ring-1 focus:ring-kodo-gold focus:outline-none disabled:opacity-50"
             placeholder="Your name"
           />
         </div>
@@ -75,7 +109,8 @@ export default function ContactForm() {
             id="email"
             name="email"
             required
-            className="w-full rounded border border-kodo-gray-200 px-4 py-2.5 text-sm text-kodo-black placeholder:text-kodo-gray-400 focus:border-kodo-gold focus:ring-1 focus:ring-kodo-gold focus:outline-none"
+            disabled={submitting}
+            className="w-full rounded border border-kodo-gray-200 px-4 py-2.5 text-sm text-kodo-black placeholder:text-kodo-gray-400 focus:border-kodo-gold focus:ring-1 focus:ring-kodo-gold focus:outline-none disabled:opacity-50"
             placeholder="you@example.com"
           />
         </div>
@@ -93,7 +128,8 @@ export default function ContactForm() {
           id="subject"
           name="subject"
           required
-          className="w-full rounded border border-kodo-gray-200 px-4 py-2.5 text-sm text-kodo-black placeholder:text-kodo-gray-400 focus:border-kodo-gold focus:ring-1 focus:ring-kodo-gold focus:outline-none"
+          disabled={submitting}
+          className="w-full rounded border border-kodo-gray-200 px-4 py-2.5 text-sm text-kodo-black placeholder:text-kodo-gray-400 focus:border-kodo-gold focus:ring-1 focus:ring-kodo-gold focus:outline-none disabled:opacity-50"
           placeholder="Enquiry about..."
         />
       </div>
@@ -109,30 +145,59 @@ export default function ContactForm() {
           id="message"
           name="message"
           required
+          disabled={submitting}
           rows={5}
-          className="w-full rounded border border-kodo-gray-200 px-4 py-2.5 text-sm text-kodo-black placeholder:text-kodo-gray-400 focus:border-kodo-gold focus:ring-1 focus:ring-kodo-gold focus:outline-none resize-y"
+          className="w-full rounded border border-kodo-gray-200 px-4 py-2.5 text-sm text-kodo-black placeholder:text-kodo-gray-400 focus:border-kodo-gold focus:ring-1 focus:ring-kodo-gold focus:outline-none disabled:opacity-50 resize-y"
           placeholder="Your message..."
         />
       </div>
 
       <button
         type="submit"
-        className="inline-flex items-center rounded bg-kodo-red px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-kodo-red-light"
+        disabled={submitting}
+        className="inline-flex items-center rounded bg-kodo-red px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-kodo-red-light disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        Send Message
-        <svg
-          className="ml-2 h-4 w-4"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M14 5l7 7m0 0l-7 7m7-7H3"
-          />
-        </svg>
+        {submitting ? (
+          <>
+            Sending...
+            <svg
+              className="ml-2 h-4 w-4 animate-spin"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <circle
+                className="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                strokeWidth="4"
+              />
+              <path
+                className="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+              />
+            </svg>
+          </>
+        ) : (
+          <>
+            Send Message
+            <svg
+              className="ml-2 h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M14 5l7 7m0 0l-7 7m7-7H3"
+              />
+            </svg>
+          </>
+        )}
       </button>
     </form>
   );

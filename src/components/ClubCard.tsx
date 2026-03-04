@@ -52,12 +52,30 @@ export default function ClubCard({ club, compact = false }: ClubCardProps) {
       </div>
 
       {/* Contact */}
-      {club.contact && (
-        <div className="border-t border-kodo-gray-100 pt-3">
-          <p className="text-sm text-kodo-gray-500">
-            <span className="font-medium text-kodo-black">Contact:</span>{" "}
-            {club.contact}
-          </p>
+      {(club.contact || club.contactPhone || club.contactEmail) && (
+        <div className="border-t border-kodo-gray-100 pt-3 space-y-1">
+          {club.contact && (
+            <p className="text-sm text-kodo-gray-500">
+              <span className="font-medium text-kodo-black">Contact:</span>{" "}
+              {club.contact}
+            </p>
+          )}
+          {club.contactPhone && (
+            <p className="text-sm text-kodo-gray-500">
+              <span className="font-medium text-kodo-black">Phone:</span>{" "}
+              <a href={`tel:${club.contactPhone.replace(/\s/g, "")}`} className="hover:text-kodo-red transition-colors">
+                {club.contactPhone}
+              </a>
+            </p>
+          )}
+          {club.contactEmail && (
+            <p className="text-sm text-kodo-gray-500">
+              <span className="font-medium text-kodo-black">Email:</span>{" "}
+              <a href={`mailto:${club.contactEmail}`} className="hover:text-kodo-red transition-colors">
+                {club.contactEmail}
+              </a>
+            </p>
+          )}
         </div>
       )}
     </div>

@@ -14,14 +14,14 @@ export const newsArticles: NewsArticle[] = [
     title: "2026 Season Kicks Off with Strong Interclub Turnout",
     date: "2026-02-16",
     excerpt:
-      "The first interclub competition of 2026 saw excellent participation from all three member clubs, setting the tone for an exciting year ahead.",
-    content: `The 2026 judo season got off to a flying start with Round 1 of the Interclub Competition, hosted by Kazoku Judokan at Reynella East.
+      "The first interclub competition of 2026 saw excellent participation from all member clubs, setting the tone for an exciting year ahead.",
+    content: `The 2026 judo season got off to a flying start with Round 1 of the Interclub Competition, hosted by Goshin Judo Kan at Clarence Gardens.
 
-Over 40 judoka from Goshin Judo Kan, Seacliff Judo Club, and Kazoku Judokan took to the mat in what was one of the best-attended interclub events in recent memory.
+Over 40 judoka from across all member clubs took to the mat in what was one of the best-attended interclub events in recent memory.
 
 Highlights included some outstanding ippon throws from the junior divisions and closely contested senior bouts that had spectators on the edge of their seats.
 
-"It's fantastic to see the depth of talent developing across all three clubs," said the event coordinator. "The level of judo on display today bodes well for the SA Open later this year."
+"It's fantastic to see the depth of talent developing across all our clubs," said the event coordinator. "The level of judo on display today bodes well for the SA Open later this year."
 
 Congratulations to all competitors for their excellent sportsmanship and fighting spirit. Round 2 will be held at Goshin Judo Kan on 12 April.`,
     author: "Kodokan Judo SA",
@@ -68,7 +68,7 @@ We welcome all new committee members and thank the outgoing members for their de
       "Kodokan Judo SA representatives brought home multiple medals from the 2025 AKJA National Championships in Sydney.",
     content: `Kodokan Judo SA's representatives delivered outstanding performances at the 2025 AKJA National Championships held in Sydney over the weekend.
 
-The SA team, comprising judoka from all three member clubs, competed across multiple weight categories in both junior and senior divisions. The team returned with several medals and, importantly, gained invaluable experience competing against judoka from across Australia.
+The SA team, comprising judoka from all member clubs, competed across multiple weight categories in both junior and senior divisions. The team returned with several medals and, importantly, gained invaluable experience competing against judoka from across Australia.
 
 The standard of judo across the nation continues to rise, and our SA judoka more than held their own. Several junior members showed significant improvement from previous years, demonstrating the effectiveness of the training programmes running across our clubs.
 

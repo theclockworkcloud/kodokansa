@@ -63,9 +63,9 @@ export const events: JudoEvent[] = [
     id: "interclub-feb-2026",
     title: "Interclub Competition — Round 1",
     date: "2026-02-15",
-    location: "Kazoku Judokan, Reynella East",
+    location: "Goshin Judo Kan, Clarence Gardens",
     description:
-      "The first interclub round of 2026, kicking off the competition season. Great turnout from all three clubs with some excellent judo on display.",
+      "The first interclub round of 2026, kicking off the competition season. Great turnout from all member clubs with some excellent judo on display.",
     type: "competition",
     isPast: true,
   },

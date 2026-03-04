@@ -19,7 +19,7 @@ export default function ClubsPage() {
             Our Clubs
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-kodo-gray-300">
-            Three clubs across Adelaide, all welcoming beginners and experienced
+            Five clubs across Adelaide, all welcoming beginners and experienced
             judoka alike. Find the one closest to you and come try a class.
           </p>
         </div>

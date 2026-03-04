@@ -79,9 +79,10 @@ export default function AboutPage() {
               decades.
             </p>
             <p className="mt-4 text-kodo-gray-600 leading-relaxed">
-              Today, the association comprises three clubs across metropolitan
-              Adelaide — Goshin Judo Kan, Seacliff Judo Club, and Kazoku
-              Judokan — serving hundreds of judoka from junior beginners to
+              Today, the association comprises five clubs across metropolitan
+              Adelaide and beyond — Goshin Judo Kan, Seacliff Judo Club,
+              Tatakai Martial Arts Academy, Tiger Judo Club, and Willunga Judo
+              Club — serving hundreds of judoka from junior beginners to
               senior black belts.
             </p>
           </div>
