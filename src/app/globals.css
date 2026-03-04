@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Noto Serif", ui-serif, Georgia, serif;
+
+  --color-kodo-red: #8B0000;
+  --color-kodo-red-light: #B91C1C;
+  --color-kodo-red-dark: #6B0000;
+  --color-kodo-black: #1A1A1A;
+  --color-kodo-white: #FAFAFA;
+  --color-kodo-gold: #C5975B;
+  --color-kodo-gold-light: #D4AB74;
+  --color-kodo-gray-50: #F8F8F8;
+  --color-kodo-gray-100: #F0F0F0;
+  --color-kodo-gray-200: #E0E0E0;
+  --color-kodo-gray-300: #C0C0C0;
+  --color-kodo-gray-400: #808080;
+  --color-kodo-gray-500: #606060;
+  --color-kodo-gray-600: #404040;
+  --color-kodo-gray-700: #303030;
+  --color-kodo-gray-800: #252525;
+  --color-kodo-gray-900: #1A1A1A;
+}
+
+/* Base styles */
+body {
+  color: var(--color-kodo-black);
+  background-color: var(--color-kodo-white);
+}
+
+/* Japanese-inspired decorative line */
+.kodo-line {
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-kodo-red) 20%,
+    var(--color-kodo-gold) 50%,
+    var(--color-kodo-red) 80%,
+    transparent
+  );
+}
+
+/* Subtle pattern background */
+.kodo-pattern {
+  background-image: radial-gradient(
+    circle,
+    var(--color-kodo-gray-200) 1px,
+    transparent 1px
+  );
+  background-size: 24px 24px;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles */
+*:focus-visible {
+  outline: 2px solid var(--color-kodo-gold);
+  outline-offset: 2px;
+}

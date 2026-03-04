@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.kodokanjudosa.org)",
+      "WebSearch",
+      "WebFetch(domain:judokodokanaustralia.org)",
+      "WebFetch(domain:judoforall.org)",
+      "WebFetch(domain:www.kazokujudokan.com.au)",
+      "WebFetch(domain:www.localgymsandfitness.com)"
+    ]
+  }
+}
