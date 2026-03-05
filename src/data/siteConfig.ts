@@ -16,6 +16,6 @@ export const siteConfig = {
   },
   affiliation: {
     name: "Australian Kodokan Judo Association (AKJA)",
-    url: "https://www.akja.com.au",
+    url: "https://judokodokanaustralia.org/",
   },
 };
