@@ -93,7 +93,7 @@ export default function ContactForm() {
             name="name"
             required
             disabled={submitting}
-            className="w-full rounded border border-kodo-gray-200 px-4 py-2.5 text-sm text-kodo-black placeholder:text-kodo-gray-400 focus:border-kodo-gold focus:ring-1 focus:ring-kodo-gold focus:outline-none disabled:opacity-50"
+            className="w-full rounded border border-kodo-gray-200 bg-white px-4 py-2.5 text-sm text-kodo-black placeholder:text-kodo-gray-400 transition-all duration-300 focus:border-kodo-gold focus:ring-2 focus:ring-kodo-gold/20 focus:shadow-[0_0_0_4px_rgba(197,151,91,0.1)] focus:outline-none disabled:opacity-50"
             placeholder="Your name"
           />
         </div>
@@ -110,7 +110,7 @@ export default function ContactForm() {
             name="email"
             required
             disabled={submitting}
-            className="w-full rounded border border-kodo-gray-200 px-4 py-2.5 text-sm text-kodo-black placeholder:text-kodo-gray-400 focus:border-kodo-gold focus:ring-1 focus:ring-kodo-gold focus:outline-none disabled:opacity-50"
+            className="w-full rounded border border-kodo-gray-200 bg-white px-4 py-2.5 text-sm text-kodo-black placeholder:text-kodo-gray-400 transition-all duration-300 focus:border-kodo-gold focus:ring-2 focus:ring-kodo-gold/20 focus:shadow-[0_0_0_4px_rgba(197,151,91,0.1)] focus:outline-none disabled:opacity-50"
             placeholder="you@example.com"
           />
         </div>
@@ -129,7 +129,7 @@ export default function ContactForm() {
           name="subject"
           required
           disabled={submitting}
-          className="w-full rounded border border-kodo-gray-200 px-4 py-2.5 text-sm text-kodo-black placeholder:text-kodo-gray-400 focus:border-kodo-gold focus:ring-1 focus:ring-kodo-gold focus:outline-none disabled:opacity-50"
+          className="w-full rounded border border-kodo-gray-200 bg-white px-4 py-2.5 text-sm text-kodo-black placeholder:text-kodo-gray-400 transition-all duration-300 focus:border-kodo-gold focus:ring-2 focus:ring-kodo-gold/20 focus:shadow-[0_0_0_4px_rgba(197,151,91,0.1)] focus:outline-none disabled:opacity-50"
           placeholder="Enquiry about..."
         />
       </div>
@@ -147,7 +147,7 @@ export default function ContactForm() {
           required
           disabled={submitting}
           rows={5}
-          className="w-full rounded border border-kodo-gray-200 px-4 py-2.5 text-sm text-kodo-black placeholder:text-kodo-gray-400 focus:border-kodo-gold focus:ring-1 focus:ring-kodo-gold focus:outline-none disabled:opacity-50 resize-y"
+          className="w-full rounded border border-kodo-gray-200 bg-white px-4 py-2.5 text-sm text-kodo-black placeholder:text-kodo-gray-400 transition-all duration-300 focus:border-kodo-gold focus:ring-2 focus:ring-kodo-gold/20 focus:shadow-[0_0_0_4px_rgba(197,151,91,0.1)] focus:outline-none disabled:opacity-50 resize-y"
           placeholder="Your message..."
         />
       </div>
@@ -155,7 +155,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={submitting}
-        className="inline-flex items-center rounded bg-kodo-red px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-kodo-red-light disabled:opacity-50 disabled:cursor-not-allowed"
+        className="kodo-btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {submitting ? (
           <>

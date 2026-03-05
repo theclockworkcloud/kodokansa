@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import SectionWrapper from "@/components/SectionWrapper";
+import PageHeader from "@/components/PageHeader";
 import GalleryGrid from "@/components/GalleryGrid";
 
 export const metadata: Metadata = {
@@ -11,18 +12,11 @@ export const metadata: Metadata = {
 export default function GalleryPage() {
   return (
     <>
-      {/* Page header */}
-      <div className="bg-kodo-black py-16">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h1 className="font-serif text-4xl font-bold text-kodo-white sm:text-5xl">
-            Gallery
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg text-kodo-gray-300">
-            Moments from competitions, training sessions, and community events.
-          </p>
-        </div>
-        <div className="mt-8 kodo-line" />
-      </div>
+      <PageHeader
+        title="Gallery"
+        subtitle="Moments from competitions, training sessions, and community events."
+        kanji="写"
+      />
 
       <SectionWrapper>
         <GalleryGrid />

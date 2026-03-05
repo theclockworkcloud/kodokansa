@@ -1,18 +1,25 @@
 import type { Metadata } from "next";
-import { Inter, Noto_Serif } from "next/font/google";
+import { DM_Sans, Cormorant_Garamond, Zen_Kaku_Gothic_New } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { siteConfig } from "@/data/siteConfig";
 import "./globals.css";
 
-const inter = Inter({
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-dm-sans",
 });
 
-const notoSerif = Noto_Serif({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  variable: "--font-noto-serif",
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-cormorant",
+});
+
+const zenKaku = Zen_Kaku_Gothic_New({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-zen-kaku",
 });
 
 export const metadata: Metadata = {
@@ -37,7 +44,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${notoSerif.variable}`}>
+    <html lang="en" className={`${dmSans.variable} ${cormorant.variable} ${zenKaku.variable}`}>
       <body className="flex min-h-screen flex-col font-sans antialiased">
         <Header />
         <main className="flex-1">{children}</main>

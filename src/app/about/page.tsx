@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import SectionWrapper from "@/components/SectionWrapper";
+import PageHeader from "@/components/PageHeader";
 import { siteConfig } from "@/data/siteConfig";
 
 export const metadata: Metadata = {
@@ -28,19 +29,11 @@ const principles = [
 export default function AboutPage() {
   return (
     <>
-      {/* Page header */}
-      <div className="bg-kodo-black py-16">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h1 className="font-serif text-4xl font-bold text-kodo-white sm:text-5xl">
-            About Us
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg text-kodo-gray-300">
-            Dedicated to preserving and promoting the art of judo as envisioned
-            by its founder.
-          </p>
-        </div>
-        <div className="mt-8 kodo-line" />
-      </div>
+      <PageHeader
+        title="About Us"
+        subtitle="Dedicated to preserving and promoting the art of judo as envisioned by its founder."
+        kanji="道"
+      />
 
       {/* Mission & History */}
       <SectionWrapper>
@@ -49,7 +42,7 @@ export default function AboutPage() {
             <h2 className="font-serif text-3xl font-bold text-kodo-black">
               Our Mission
             </h2>
-            <div className="mt-3 w-16 kodo-line" />
+            <div className="kodo-section-divider mt-3 max-w-[6rem]"><span className="diamond" /></div>
             <p className="mt-6 text-kodo-gray-600 leading-relaxed">
               The Kodokan Judo Association of South Australia is a not-for-profit
               organisation committed to promoting and developing judo as it was
@@ -70,7 +63,7 @@ export default function AboutPage() {
             <h2 className="font-serif text-3xl font-bold text-kodo-black">
               Our History
             </h2>
-            <div className="mt-3 w-16 kodo-line" />
+            <div className="kodo-section-divider mt-3 max-w-[6rem]"><span className="diamond" /></div>
             <p className="mt-6 text-kodo-gray-600 leading-relaxed">
               Kodokan Judo SA was established to bring together like-minded judo
               practitioners in South Australia who share a commitment to
@@ -98,7 +91,7 @@ export default function AboutPage() {
           <h2 className="font-serif text-3xl font-bold text-kodo-black">
             The Vision of Prof. Jigoro Kano
           </h2>
-          <div className="mx-auto mt-4 w-16 kodo-line" />
+          <div className="kodo-section-divider mx-auto mt-4 max-w-xs"><span className="diamond" /></div>
           <p className="mt-6 text-kodo-gray-600 leading-relaxed">
             Professor Jigoro Kano (1860–1938) founded Kodokan Judo in 1882 in
             Tokyo, Japan. More than a martial art or sport, Kano envisioned judo
@@ -125,12 +118,12 @@ export default function AboutPage() {
         <h2 className="text-center font-serif text-3xl font-bold text-kodo-black">
           Guiding Principles
         </h2>
-        <div className="mx-auto mt-4 w-16 kodo-line" />
+        <div className="kodo-section-divider mx-auto mt-4 max-w-xs"><span className="diamond" /></div>
         <div className="mt-10 grid gap-8 md:grid-cols-2">
           {principles.map((p) => (
             <div
               key={p.romaji}
-              className="rounded-lg border border-kodo-gray-200 bg-white p-8 text-center"
+              className="kodo-card p-8 text-center"
             >
               <div className="mb-2 font-serif text-4xl text-kodo-red/40 select-none">
                 {p.japanese}
@@ -155,7 +148,7 @@ export default function AboutPage() {
           <h2 className="font-serif text-3xl font-bold text-kodo-black">
             National Affiliation
           </h2>
-          <div className="mx-auto mt-4 w-16 kodo-line" />
+          <div className="kodo-section-divider mx-auto mt-4 max-w-xs"><span className="diamond" /></div>
           <p className="mt-6 text-kodo-gray-600 leading-relaxed">
             Kodokan Judo SA is proudly affiliated with the{" "}
             <a
@@ -184,7 +177,7 @@ export default function AboutPage() {
         <h2 className="text-center font-serif text-3xl font-bold text-kodo-black">
           Our Committee
         </h2>
-        <div className="mx-auto mt-4 w-16 kodo-line" />
+        <div className="kodo-section-divider mx-auto mt-4 max-w-xs"><span className="diamond" /></div>
         <p className="mx-auto mt-6 max-w-2xl text-center text-kodo-gray-600">
           Kodokan Judo SA is governed by a volunteer committee of dedicated judo
           practitioners who give their time to support the growth and development
@@ -195,7 +188,7 @@ export default function AboutPage() {
             (role) => (
               <div
                 key={role}
-                className="rounded-lg border border-kodo-gray-200 bg-white p-6 text-center"
+                className="kodo-card p-6 text-center"
               >
                 <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-kodo-gray-100 text-kodo-gray-400">
                   <svg

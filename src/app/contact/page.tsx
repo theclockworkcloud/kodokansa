@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import SectionWrapper from "@/components/SectionWrapper";
+import PageHeader from "@/components/PageHeader";
 import ContactForm from "@/components/ContactForm";
 import { siteConfig } from "@/data/siteConfig";
 
@@ -12,19 +13,11 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      {/* Page header */}
-      <div className="bg-kodo-black py-16">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h1 className="font-serif text-4xl font-bold text-kodo-white sm:text-5xl">
-            Contact Us
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg text-kodo-gray-300">
-            Have a question about judo, our clubs, or upcoming events? We&apos;d
-            love to hear from you.
-          </p>
-        </div>
-        <div className="mt-8 kodo-line" />
-      </div>
+      <PageHeader
+        title="Contact Us"
+        subtitle="Have a question about judo, our clubs, or upcoming events? We'd love to hear from you."
+        kanji="縁"
+      />
 
       <SectionWrapper>
         <div className="grid gap-12 lg:grid-cols-3">
@@ -33,7 +26,7 @@ export default function ContactPage() {
             <h2 className="font-serif text-2xl font-bold text-kodo-black">
               Get in Touch
             </h2>
-            <div className="mt-3 w-16 kodo-line" />
+            <div className="kodo-section-divider mt-3 max-w-[6rem]"><span className="diamond" /></div>
 
             <div className="mt-8 space-y-6">
               {/* Email */}
@@ -178,7 +171,7 @@ export default function ContactPage() {
             <h2 className="font-serif text-2xl font-bold text-kodo-black">
               Send a Message
             </h2>
-            <div className="mt-3 w-16 kodo-line" />
+            <div className="kodo-section-divider mt-3 max-w-[6rem]"><span className="diamond" /></div>
             <div className="mt-8">
               <ContactForm />
             </div>
@@ -191,7 +184,7 @@ export default function ContactPage() {
         <h2 className="text-center font-serif text-2xl font-bold text-kodo-black">
           Our Clubs
         </h2>
-        <div className="mx-auto mt-3 w-16 kodo-line" />
+        <div className="kodo-section-divider mx-auto mt-3 max-w-xs"><span className="diamond" /></div>
         <div className="mt-8 flex h-64 items-center justify-center rounded-lg border border-kodo-gray-200 bg-kodo-gray-100 text-kodo-gray-400">
           <div className="text-center">
             <svg

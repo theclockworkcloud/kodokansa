@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Noto Serif", ui-serif, Georgia, serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-display: "Zen Kaku Gothic New", "DM Sans", ui-sans-serif, system-ui, sans-serif;
 
   --color-kodo-red: #8B0000;
   --color-kodo-red-light: #B91C1C;
@@ -23,14 +24,43 @@
   --color-kodo-gray-900: #1A1A1A;
 }
 
-/* Base styles */
+/* ──────────────────────────────────────────────
+   Design Tokens
+   ────────────────────────────────────────────── */
+:root {
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-sine: cubic-bezier(0.37, 0, 0.63, 1);
+
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-card-hover: 0 10px 25px rgba(0, 0, 0, 0.08), 0 4px 10px rgba(0, 0, 0, 0.04);
+  --shadow-dramatic: 0 20px 60px rgba(0, 0, 0, 0.15), 0 8px 20px rgba(0, 0, 0, 0.08);
+
+  --color-kodo-red-glow: rgba(139, 0, 0, 0.4);
+  --color-kodo-gold-glow: rgba(197, 151, 91, 0.3);
+}
+
+/* ──────────────────────────────────────────────
+   Base
+   ────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   color: var(--color-kodo-black);
   background-color: var(--color-kodo-white);
 }
 
-/* Japanese-inspired decorative line */
+*:focus-visible {
+  outline: 2px solid var(--color-kodo-gold);
+  outline-offset: 2px;
+}
+
+/* ──────────────────────────────────────────────
+   Decorative Line — upgraded with glow
+   ────────────────────────────────────────────── */
 .kodo-line {
+  position: relative;
   height: 2px;
   background: linear-gradient(
     90deg,
@@ -42,7 +72,25 @@ body {
   );
 }
 
-/* Subtle pattern background */
+.kodo-line::after {
+  content: "";
+  position: absolute;
+  inset: -2px 10% -2px 10%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-kodo-red-glow) 30%,
+    var(--color-kodo-gold-glow) 50%,
+    var(--color-kodo-red-glow) 70%,
+    transparent
+  );
+  filter: blur(6px);
+  opacity: 0.7;
+}
+
+/* ──────────────────────────────────────────────
+   Patterns
+   ────────────────────────────────────────────── */
 .kodo-pattern {
   background-image: radial-gradient(
     circle,
@@ -52,13 +100,281 @@ body {
   background-size: 24px 24px;
 }
 
-/* Smooth scroll */
-html {
-  scroll-behavior: smooth;
+/* Seigaiha wave pattern */
+.kodo-wave {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='30'%3E%3Ccircle cx='30' cy='30' r='20' fill='none' stroke='%23C5975B' stroke-width='0.5' opacity='0.15'/%3E%3Ccircle cx='30' cy='30' r='14' fill='none' stroke='%23C5975B' stroke-width='0.5' opacity='0.1'/%3E%3Ccircle cx='0' cy='30' r='20' fill='none' stroke='%23C5975B' stroke-width='0.5' opacity='0.15'/%3E%3Ccircle cx='60' cy='30' r='20' fill='none' stroke='%23C5975B' stroke-width='0.5' opacity='0.15'/%3E%3C/svg%3E");
+  background-size: 60px 30px;
 }
 
-/* Focus styles */
-*:focus-visible {
-  outline: 2px solid var(--color-kodo-gold);
-  outline-offset: 2px;
+/* Asanoha star pattern */
+.kodo-asanoha {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M20 0L40 20L20 40L0 20Z' fill='none' stroke='%23C5975B' stroke-width='0.3' opacity='0.12'/%3E%3Cpath d='M20 0L20 40M0 20L40 20' fill='none' stroke='%23C5975B' stroke-width='0.3' opacity='0.08'/%3E%3C/svg%3E");
+  background-size: 40px 40px;
+}
+
+/* Grain noise overlay */
+.kodo-grain {
+  position: relative;
+}
+
+.kodo-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ──────────────────────────────────────────────
+   Section Divider — gold lines + diamond
+   ────────────────────────────────────────────── */
+.kodo-section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0.5rem 0;
+}
+
+.kodo-section-divider::before,
+.kodo-section-divider::after {
+  content: "";
+  flex: 1;
+  max-width: 6rem;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-kodo-gold)
+  );
+}
+
+.kodo-section-divider::after {
+  background: linear-gradient(
+    90deg,
+    var(--color-kodo-gold),
+    transparent
+  );
+}
+
+.kodo-section-divider .diamond {
+  width: 6px;
+  height: 6px;
+  background: var(--color-kodo-gold);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+/* ──────────────────────────────────────────────
+   Buttons
+   ────────────────────────────────────────────── */
+.kodo-btn-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.75rem;
+  background: var(--color-kodo-red);
+  color: white;
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: 0.25rem;
+  overflow: hidden;
+  transition: all 0.3s var(--ease-out-expo);
+  box-shadow: 0 2px 8px var(--color-kodo-red-glow);
+}
+
+.kodo-btn-primary:hover {
+  background: var(--color-kodo-red-light);
+  box-shadow: 0 4px 20px var(--color-kodo-red-glow);
+  transform: translateY(-1px);
+}
+
+.kodo-btn-primary::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+  transition: left 0.5s var(--ease-out-expo);
+}
+
+.kodo-btn-primary:hover::after {
+  left: 100%;
+}
+
+.kodo-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.75rem;
+  border: 1px solid rgba(197, 151, 91, 0.5);
+  color: var(--color-kodo-gold);
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: 0.25rem;
+  transition: all 0.3s var(--ease-out-expo);
+}
+
+.kodo-btn-ghost:hover {
+  border-color: var(--color-kodo-gold);
+  background: rgba(197, 151, 91, 0.1);
+  box-shadow: 0 0 20px var(--color-kodo-gold-glow);
+}
+
+/* ──────────────────────────────────────────────
+   Card Base
+   ────────────────────────────────────────────── */
+.kodo-card {
+  position: relative;
+  background: white;
+  border: 1px solid var(--color-kodo-gray-200);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: all 0.4s var(--ease-out-expo);
+}
+
+.kodo-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-kodo-red), var(--color-kodo-gold));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease-out-expo);
+}
+
+.kodo-card:hover {
+  border-color: transparent;
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-2px);
+}
+
+.kodo-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* ──────────────────────────────────────────────
+   Link Animation — underline from left
+   ────────────────────────────────────────────── */
+.kodo-link {
+  position: relative;
+  text-decoration: none;
+}
+
+.kodo-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s var(--ease-out-expo);
+}
+
+.kodo-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* ──────────────────────────────────────────────
+   Page Header — atmospheric
+   ────────────────────────────────────────────── */
+.kodo-page-header {
+  position: relative;
+  background: var(--color-kodo-black);
+  overflow: hidden;
+}
+
+.kodo-page-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 80%, var(--color-kodo-red-glow) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, var(--color-kodo-gold-glow) 0%, transparent 50%);
+  opacity: 0.6;
+}
+
+/* ──────────────────────────────────────────────
+   Reveal Animations (scroll)
+   ────────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s var(--ease-out-expo), transform 0.6s var(--ease-out-expo);
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-stagger > .reveal:nth-child(1) { transition-delay: 0ms; }
+.reveal-stagger > .reveal:nth-child(2) { transition-delay: 100ms; }
+.reveal-stagger > .reveal:nth-child(3) { transition-delay: 200ms; }
+.reveal-stagger > .reveal:nth-child(4) { transition-delay: 300ms; }
+.reveal-stagger > .reveal:nth-child(5) { transition-delay: 400ms; }
+.reveal-stagger > .reveal:nth-child(6) { transition-delay: 500ms; }
+
+/* ──────────────────────────────────────────────
+   Hero Entrance
+   ────────────────────────────────────────────── */
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-enter {
+  opacity: 0;
+  animation: heroFadeIn 0.8s var(--ease-out-expo) forwards;
+}
+
+.hero-enter-1 { animation-delay: 0ms; }
+.hero-enter-2 { animation-delay: 150ms; }
+.hero-enter-3 { animation-delay: 300ms; }
+.hero-enter-4 { animation-delay: 450ms; }
+.hero-enter-5 { animation-delay: 600ms; }
+
+/* ──────────────────────────────────────────────
+   Enso / Kanji Keyframes
+   ────────────────────────────────────────────── */
+@keyframes ensoRotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes ensoCounterRotate {
+  from { transform: translate(-50%, -50%) rotate(360deg); }
+  to { transform: translate(-50%, -50%) rotate(0deg); }
+}
+
+@keyframes ensoPulse {
+  0%, 100% { opacity: 0.15; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.25; transform: translate(-50%, -50%) scale(1.05); }
+}
+
+@keyframes kanjiFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }

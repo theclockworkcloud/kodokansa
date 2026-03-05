@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import SectionWrapper from "@/components/SectionWrapper";
+import PageHeader from "@/components/PageHeader";
 import ClubCard from "@/components/ClubCard";
 import { clubs } from "@/data/clubs";
 
@@ -12,19 +13,11 @@ export const metadata: Metadata = {
 export default function ClubsPage() {
   return (
     <>
-      {/* Page header */}
-      <div className="bg-kodo-black py-16">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h1 className="font-serif text-4xl font-bold text-kodo-white sm:text-5xl">
-            Our Clubs
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg text-kodo-gray-300">
-            Five clubs across Adelaide, all welcoming beginners and experienced
-            judoka alike. Find the one closest to you and come try a class.
-          </p>
-        </div>
-        <div className="mt-8 kodo-line" />
-      </div>
+      <PageHeader
+        title="Our Clubs"
+        subtitle="Five clubs across Adelaide, all welcoming beginners and experienced judoka alike. Find the one closest to you and come try a class."
+        kanji="館"
+      />
 
       <SectionWrapper>
         <div className="space-y-6">

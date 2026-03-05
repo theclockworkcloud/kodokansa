@@ -3,6 +3,8 @@ interface SectionWrapperProps {
   className?: string;
   id?: string;
   dark?: boolean;
+  pattern?: boolean;
+  grain?: boolean;
 }
 
 export default function SectionWrapper({
@@ -10,15 +12,17 @@ export default function SectionWrapper({
   className = "",
   id,
   dark = false,
+  pattern = false,
+  grain = false,
 }: SectionWrapperProps) {
   return (
     <section
       id={id}
-      className={`py-16 px-4 sm:px-6 lg:px-8 ${
+      className={`relative py-20 px-4 sm:px-6 lg:px-8 lg:py-24 ${
         dark ? "bg-kodo-black text-kodo-white" : ""
-      } ${className}`}
+      } ${pattern ? "kodo-pattern" : ""} ${grain ? "kodo-grain" : ""} ${className}`}
     >
-      <div className="mx-auto max-w-6xl">{children}</div>
+      <div className="relative mx-auto max-w-6xl">{children}</div>
     </section>
   );
 }

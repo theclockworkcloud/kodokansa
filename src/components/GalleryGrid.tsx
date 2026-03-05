@@ -24,9 +24,9 @@ export default function GalleryGrid() {
           <button
             key={cat.id}
             onClick={() => setActiveCategory(cat.id)}
-            className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
+            className={`rounded-full px-4 py-1.5 text-sm font-medium transition-all duration-300 ${
               activeCategory === cat.id
-                ? "bg-kodo-red text-white"
+                ? "bg-kodo-red text-white shadow-lg shadow-kodo-red/20"
                 : "bg-kodo-gray-100 text-kodo-gray-600 hover:bg-kodo-gray-200"
             }`}
           >
@@ -41,10 +41,10 @@ export default function GalleryGrid() {
           <button
             key={image.id}
             onClick={() => setLightboxImage(image)}
-            className="group relative aspect-square overflow-hidden rounded-lg bg-kodo-gray-100"
+            className="group relative aspect-square overflow-hidden rounded-lg bg-kodo-gray-100 transition-all duration-500 hover:shadow-lg"
           >
-            {/* Placeholder — replace with next/image when real photos are added */}
-            <div className="flex h-full w-full items-center justify-center text-kodo-gray-300 transition-transform group-hover:scale-105">
+            {/* Placeholder */}
+            <div className="flex h-full w-full items-center justify-center text-kodo-gray-300 transition-transform duration-500 ease-out group-hover:scale-105">
               <svg
                 className="h-10 w-10"
                 fill="none"
@@ -61,7 +61,7 @@ export default function GalleryGrid() {
             </div>
 
             {/* Hover overlay */}
-            <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-kodo-black/70 to-transparent p-3 opacity-0 transition-opacity group-hover:opacity-100">
+            <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-kodo-black/70 via-kodo-black/20 to-transparent p-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
               <p className="text-xs font-medium text-white">{image.alt}</p>
               {image.event && (
                 <p className="text-xs text-kodo-gold">{image.event}</p>
@@ -80,21 +80,21 @@ export default function GalleryGrid() {
       {/* Lightbox */}
       {lightboxImage && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-kodo-black/90 p-4"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-kodo-black/95 p-4 backdrop-blur-sm"
           onClick={() => setLightboxImage(null)}
         >
           <button
             onClick={() => setLightboxImage(null)}
-            className="absolute right-4 top-4 rounded-full p-2 text-kodo-white hover:text-kodo-gold transition-colors"
+            className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full border border-kodo-gray-700 text-kodo-white transition-all hover:border-kodo-gold hover:text-kodo-gold"
             aria-label="Close lightbox"
           >
-            <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
 
           <div
-            className="max-h-[80vh] max-w-4xl overflow-hidden rounded-lg bg-kodo-gray-100"
+            className="max-h-[80vh] max-w-4xl overflow-hidden rounded-lg bg-kodo-gray-100 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Placeholder for actual image */}

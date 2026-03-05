@@ -45,11 +45,16 @@ export default async function NewsArticlePage({ params }: PageProps) {
   return (
     <>
       {/* Page header */}
-      <div className="bg-kodo-black py-16">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div className="kodo-page-header py-20 sm:py-24">
+        <div className="absolute inset-0 kodo-wave opacity-30" />
+        <div className="absolute inset-0 kodo-grain" />
+        <div className="absolute right-[5%] top-1/2 -translate-y-1/2 font-serif text-[clamp(8rem,20vw,16rem)] leading-none text-kodo-white/[0.04] select-none sm:right-[10%]">
+          報
+        </div>
+        <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <Link
             href="/news"
-            className="mb-4 inline-flex items-center text-sm text-kodo-gray-400 hover:text-kodo-gold transition-colors"
+            className="kodo-link mb-4 inline-flex items-center text-sm text-kodo-gray-400 hover:text-kodo-gold transition-colors"
           >
             <svg
               className="mr-1 h-4 w-4"
@@ -66,15 +71,15 @@ export default async function NewsArticlePage({ params }: PageProps) {
             </svg>
             Back to News
           </Link>
-          <h1 className="font-serif text-3xl font-bold text-kodo-white sm:text-4xl">
+          <h1 className="hero-enter hero-enter-1 font-serif text-3xl font-light text-kodo-white sm:text-4xl lg:text-5xl">
             {article.title}
           </h1>
-          <div className="mt-4 flex items-center gap-4 text-sm text-kodo-gray-400">
+          <div className="hero-enter hero-enter-2 mt-4 flex items-center gap-4 text-sm text-kodo-gray-400">
             <time dateTime={article.date}>{formatDate(article.date)}</time>
             {article.author && <span>by {article.author}</span>}
           </div>
         </div>
-        <div className="mt-8 kodo-line" />
+        <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-b from-transparent to-kodo-white" />
       </div>
 
       <SectionWrapper>

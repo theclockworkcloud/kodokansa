@@ -1,11 +1,20 @@
+"use client";
+
 import Link from "next/link";
 import { siteConfig } from "@/data/siteConfig";
 
 export default function Footer() {
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
   return (
-    <footer className="bg-kodo-black text-kodo-gray-300">
+    <footer className="relative bg-kodo-black text-kodo-gray-300">
+      {/* Grain overlay */}
+      <div className="absolute inset-0 kodo-grain" />
+
       <div className="kodo-line" />
-      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+      <div className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {/* About */}
           <div>
@@ -13,7 +22,7 @@ export default function Footer() {
               <div className="flex h-8 w-8 items-center justify-center rounded border border-kodo-red bg-kodo-red/10 font-serif text-sm text-kodo-white">
                 柔
               </div>
-              <span className="font-bold text-kodo-white">
+              <span className="font-serif font-semibold text-kodo-white">
                 {siteConfig.shortName}
               </span>
             </div>
@@ -24,32 +33,32 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="mb-3 text-sm font-bold tracking-wider text-kodo-gold uppercase">
+            <h3 className="font-display mb-3 text-xs font-medium tracking-[0.2em] text-kodo-gold uppercase">
               Quick Links
             </h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/about" className="hover:text-kodo-white transition-colors">
+                <Link href="/about" className="kodo-link hover:text-kodo-white transition-colors">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/clubs" className="hover:text-kodo-white transition-colors">
+                <Link href="/clubs" className="kodo-link hover:text-kodo-white transition-colors">
                   Find a Club
                 </Link>
               </li>
               <li>
-                <Link href="/events" className="hover:text-kodo-white transition-colors">
+                <Link href="/events" className="kodo-link hover:text-kodo-white transition-colors">
                   Events
                 </Link>
               </li>
               <li>
-                <Link href="/news" className="hover:text-kodo-white transition-colors">
+                <Link href="/news" className="kodo-link hover:text-kodo-white transition-colors">
                   News
                 </Link>
               </li>
               <li>
-                <Link href="/gallery" className="hover:text-kodo-white transition-colors">
+                <Link href="/gallery" className="kodo-link hover:text-kodo-white transition-colors">
                   Gallery
                 </Link>
               </li>
@@ -58,7 +67,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="mb-3 text-sm font-bold tracking-wider text-kodo-gold uppercase">
+            <h3 className="font-display mb-3 text-xs font-medium tracking-[0.2em] text-kodo-gold uppercase">
               Contact
             </h3>
             <ul className="space-y-2 text-sm">
@@ -66,7 +75,7 @@ export default function Footer() {
               <li>
                 <a
                   href={`mailto:${siteConfig.contact.email}`}
-                  className="hover:text-kodo-white transition-colors"
+                  className="kodo-link hover:text-kodo-white transition-colors"
                 >
                   {siteConfig.contact.email}
                 </a>
@@ -74,7 +83,7 @@ export default function Footer() {
               <li>
                 <a
                   href={`tel:${siteConfig.contact.phone}`}
-                  className="hover:text-kodo-white transition-colors"
+                  className="kodo-link hover:text-kodo-white transition-colors"
                 >
                   {siteConfig.contact.phone}
                 </a>
@@ -84,7 +93,7 @@ export default function Footer() {
 
           {/* Affiliation */}
           <div>
-            <h3 className="mb-3 text-sm font-bold tracking-wider text-kodo-gold uppercase">
+            <h3 className="font-display mb-3 text-xs font-medium tracking-[0.2em] text-kodo-gold uppercase">
               Affiliation
             </h3>
             <p className="mb-3 text-sm">
@@ -93,7 +102,7 @@ export default function Footer() {
                 href={siteConfig.affiliation.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-kodo-white hover:text-kodo-gold transition-colors"
+                className="kodo-link text-kodo-white hover:text-kodo-gold transition-colors"
               >
                 {siteConfig.affiliation.name}
               </a>
@@ -130,14 +139,27 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-10 border-t border-kodo-gray-800 pt-6 text-center text-xs text-kodo-gray-500">
-          <p>
-            &copy; {new Date().getFullYear()} {siteConfig.name}. All rights
-            reserved.
-          </p>
-          <p className="mt-1">
-            Dedicated to promoting judo as intended by founder Prof. Jigoro Kano.
-          </p>
+        <div className="mt-12 flex items-center justify-between border-t border-kodo-gray-800 pt-6">
+          <div className="text-xs text-kodo-gray-500">
+            <p>
+              &copy; {new Date().getFullYear()} {siteConfig.name}. All rights
+              reserved.
+            </p>
+            <p className="mt-1">
+              Dedicated to promoting judo as intended by founder Prof. Jigoro Kano.
+            </p>
+          </div>
+
+          {/* Back to top */}
+          <button
+            onClick={scrollToTop}
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-kodo-gray-700 text-kodo-gray-400 transition-all hover:border-kodo-gold hover:text-kodo-gold"
+            aria-label="Back to top"
+          >
+            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+            </svg>
+          </button>
         </div>
       </div>
     </footer>
