@@ -47,7 +47,7 @@ export default async function NewsArticlePage({ params }: PageProps) {
       <div className="kodo-page-header py-24 sm:py-28">
         <div className="absolute inset-0 kodo-wave opacity-20" />
         <div className="absolute inset-0 kodo-grain" />
-        <div className="absolute right-[5%] top-1/2 -translate-y-1/2 font-serif text-[clamp(8rem,20vw,14rem)] leading-none text-white/[0.03] select-none sm:right-[10%]">
+        <div className="absolute right-[5%] top-1/2 -translate-y-1/2 font-serif text-[clamp(8rem,20vw,14rem)] leading-none text-white/[0.07] select-none sm:right-[10%]">
           報
         </div>
         <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">

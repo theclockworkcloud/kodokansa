@@ -11,7 +11,7 @@ export default function PageHeader({ title, subtitle, kanji }: PageHeaderProps) 
       <div className="absolute inset-0 kodo-grain" />
 
       {/* Kanji watermark */}
-      <div className="absolute right-[5%] top-1/2 -translate-y-1/2 font-serif text-[clamp(10rem,22vw,16rem)] leading-none text-white/[0.03] select-none sm:right-[10%]">
+      <div className="absolute right-[5%] top-1/2 -translate-y-1/2 font-serif text-[clamp(10rem,22vw,16rem)] leading-none text-white/[0.07] select-none sm:right-[10%]">
         {kanji}
       </div>
 

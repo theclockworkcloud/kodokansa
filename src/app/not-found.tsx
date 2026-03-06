@@ -7,7 +7,7 @@ export default function NotFound() {
       <div className="absolute inset-0 kodo-wave opacity-20" />
       <div className="absolute inset-0 kodo-grain" />
 
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 font-serif text-[clamp(14rem,30vw,24rem)] leading-none text-white/[0.03] select-none">
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 font-serif text-[clamp(14rem,30vw,24rem)] leading-none text-white/[0.07] select-none">
         迷
       </div>
 

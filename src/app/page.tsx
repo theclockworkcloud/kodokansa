@@ -83,7 +83,7 @@ export default function HomePage() {
         <div className="absolute inset-0 kodo-asanoha opacity-40" />
         <div className="absolute inset-0 kodo-grain" />
 
-        <div className="absolute left-[5%] top-1/2 -translate-y-1/2 font-serif text-[clamp(10rem,25vw,18rem)] leading-none text-white/[0.02] select-none">
+        <div className="absolute left-[5%] top-1/2 -translate-y-1/2 font-serif text-[clamp(10rem,25vw,18rem)] leading-none text-white/[0.06] select-none">
           道
         </div>
 
@@ -125,7 +125,7 @@ export default function HomePage() {
                     key={item.label}
                     className="group rounded-lg border border-white/[0.06] bg-white/[0.02] p-5 text-center transition-all duration-300 hover:border-kodo-gold/20 hover:bg-white/[0.04]"
                   >
-                    <span className="font-serif text-3xl text-kodo-red/30 transition-colors group-hover:text-kodo-red/50">
+                    <span className="font-serif text-3xl text-kodo-red/60 transition-colors group-hover:text-kodo-red/80">
                       {item.kanji}
                     </span>
                     <p className="mt-2 text-sm font-medium text-kodo-white">
@@ -263,7 +263,7 @@ export default function HomePage() {
         <div className="absolute inset-0 kodo-grain" />
 
         {/* Decorative kanji */}
-        <div className="absolute right-[8%] top-1/2 -translate-y-1/2 font-serif text-[10rem] leading-none text-white/[0.02] select-none">
+        <div className="absolute right-[8%] top-1/2 -translate-y-1/2 font-serif text-[10rem] leading-none text-white/[0.06] select-none">
           始
         </div>
 

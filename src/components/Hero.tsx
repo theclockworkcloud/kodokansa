@@ -28,7 +28,7 @@ export default function Hero() {
             fill="none"
             stroke="currentColor"
             strokeWidth="0.8"
-            className="text-white/[0.04]"
+            className="text-white/[0.08]"
             style={{ animation: "ensoRotate 90s linear infinite" }}
           />
           <circle

@@ -34,7 +34,7 @@ export default function ClubsPage() {
 
         <ScrollReveal>
           <div className="reveal mt-12 rounded-lg border border-kodo-gray-100 bg-kodo-gray-50 p-8 text-center sm:p-10">
-            <div className="font-serif text-3xl text-kodo-red/20 select-none">初</div>
+            <div className="font-serif text-3xl text-kodo-red/60 select-none">初</div>
             <h3 className="mt-2 font-serif text-xl text-kodo-black">
               Interested in Starting Judo?
             </h3>

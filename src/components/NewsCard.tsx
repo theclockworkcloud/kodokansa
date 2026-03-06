@@ -21,7 +21,7 @@ export default function NewsCard({ article }: NewsCardProps) {
       <div className="relative flex h-44 items-center justify-center overflow-hidden bg-kodo-black">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_70%,rgba(165,36,34,0.2)_0%,transparent_70%)]" />
         <div className="absolute inset-0 kodo-asanoha opacity-50" />
-        <div className="absolute inset-0 flex items-center justify-center font-serif text-[5rem] leading-none text-white/[0.04] transition-transform duration-700 group-hover:scale-110 select-none">
+        <div className="absolute inset-0 flex items-center justify-center font-serif text-[5rem] leading-none text-white/[0.08] transition-transform duration-700 group-hover:scale-110 select-none">
           記
         </div>
         <span className="absolute left-4 top-4 rounded bg-black/30 px-2 py-1 text-xs text-kodo-gold/80 backdrop-blur-sm">

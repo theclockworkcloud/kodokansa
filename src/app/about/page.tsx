@@ -108,7 +108,7 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_60%,rgba(165,36,34,0.15)_0%,transparent_60%)]" />
         <div className="absolute inset-0 kodo-wave opacity-15" />
         <div className="absolute inset-0 kodo-grain" />
-        <div className="absolute left-[5%] top-1/2 -translate-y-1/2 font-serif text-[12rem] leading-none text-white/[0.02] select-none">
+        <div className="absolute left-[5%] top-1/2 -translate-y-1/2 font-serif text-[12rem] leading-none text-white/[0.06] select-none">
           嘉納
         </div>
 
@@ -173,7 +173,7 @@ export default function AboutPage() {
                 key={p.romaji}
                 className="reveal group rounded-lg border border-kodo-gray-100 bg-kodo-gray-50 p-8 text-center transition-all duration-300 hover:border-kodo-gold/30 hover:shadow-lg"
               >
-                <div className="mb-3 font-serif text-5xl text-kodo-red/20 transition-colors group-hover:text-kodo-red/35 select-none">
+                <div className="mb-3 font-serif text-5xl text-kodo-red/60 transition-colors group-hover:text-kodo-red/80 select-none">
                   {p.japanese}
                 </div>
                 <h3 className="font-serif text-xl text-kodo-black">
