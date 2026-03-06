@@ -69,7 +69,7 @@ export default function Hero() {
         <div className="max-w-2xl">
           {/* Kanji — large, atmospheric */}
           <div
-            className="hero-enter hero-enter-1 mb-2 font-serif text-[clamp(8rem,22vw,16rem)] leading-[0.8] text-kodo-red/30 select-none"
+            className="hero-enter hero-enter-1 mb-2 font-serif text-[clamp(8rem,22vw,16rem)] leading-[0.8] text-kodo-red/60 select-none"
             style={{ animation: "heroFadeIn 1s var(--ease-out-expo) forwards, kanjiFloat 8s ease-in-out infinite 1.5s" }}
           >
             柔道
