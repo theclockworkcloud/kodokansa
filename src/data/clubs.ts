@@ -29,6 +29,7 @@ export const clubs: Club[] = [
       { day: "Thursday", session: "Seniors", time: "7:00 PM – 8:30 PM" },
     ],
     contactPhone: "0416 115 195",
+    image: "/logos/goshin-judo-kan.png",
   },
   {
     id: "seacliff-judo-club",
@@ -47,6 +48,7 @@ export const clubs: Club[] = [
     contact: "Jason Kari",
     contactPhone: "0432 760 834",
     contactEmail: "judo@seacliffrec.org.au",
+    image: "/logos/seacliff-judo-club.png",
   },
   {
     id: "tatakai-martial-arts-academy",
@@ -60,6 +62,7 @@ export const clubs: Club[] = [
       { day: "Thursday", session: "All Levels", time: "7:00 PM – 8:30 PM" },
     ],
     contactPhone: "0408 311 772",
+    image: "/logos/tatakai-martial-arts-academy.png",
   },
   {
     id: "tiger-judo-club",
@@ -74,6 +77,7 @@ export const clubs: Club[] = [
       { day: "Saturday", session: "All Levels", time: "9:30 AM – 11:00 AM" },
     ],
     contactPhone: "0412 864 804",
+    image: "/logos/tiger-judo-club.png",
   },
   {
     id: "willunga-judo-club",
@@ -87,5 +91,6 @@ export const clubs: Club[] = [
       { day: "Wednesday", session: "Advanced", time: "7:30 PM – 8:30 PM" },
     ],
     contactPhone: "0407 798 803",
+    image: "/logos/willunga-judo-club.png",
   },
 ];
