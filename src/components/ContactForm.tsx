@@ -4,7 +4,7 @@ import { useState, type FormEvent } from "react";
 import { supabase } from "@/lib/supabase";
 
 const inputClass =
-  "w-full rounded bg-kodo-gray-50 border border-kodo-gray-200 px-4 py-2.5 text-sm text-kodo-black placeholder:text-kodo-gray-400 transition-colors focus:border-kodo-gold focus:outline-none focus:ring-1 focus:ring-kodo-gold/30 disabled:opacity-50";
+  "w-full rounded-md bg-kodo-gray-50 border border-kodo-gray-200 px-4 py-3 text-[15px] text-kodo-black placeholder:text-kodo-gray-300 transition-all focus:border-kodo-gold focus:outline-none focus:ring-2 focus:ring-kodo-gold/20 focus:bg-white disabled:opacity-50";
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -43,30 +43,32 @@ export default function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="rounded-lg bg-emerald-50 p-8 text-center">
-        <svg
-          className="mx-auto h-10 w-10 text-emerald-500"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M5 13l4 4L19 7"
-          />
-        </svg>
-        <h3 className="mt-3 font-serif text-lg text-emerald-800">
+      <div className="rounded-lg border border-emerald-200 bg-emerald-50 p-10 text-center">
+        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-emerald-100">
+          <svg
+            className="h-7 w-7 text-emerald-600"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M5 13l4 4L19 7"
+            />
+          </svg>
+        </div>
+        <h3 className="mt-4 font-serif text-xl text-emerald-800">
           Message Sent
         </h3>
-        <p className="mt-1 text-sm text-emerald-700">
+        <p className="mt-2 text-[15px] text-emerald-700">
           Thank you for your enquiry. We&apos;ll get back to you as soon as
           possible.
         </p>
         <button
           onClick={() => setSubmitted(false)}
-          className="mt-4 text-sm text-emerald-700 transition-colors hover:text-emerald-900"
+          className="mt-6 text-sm font-medium text-emerald-700 transition-colors hover:text-emerald-900"
         >
           Send another message &rarr;
         </button>
@@ -77,14 +79,14 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
       {error && (
-        <div className="rounded-lg bg-red-50 p-4 text-sm text-red-700">
+        <div className="rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-700">
           {error}
         </div>
       )}
 
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label htmlFor="name" className="mb-1.5 block text-sm text-kodo-black">
+          <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-kodo-black">
             Name
           </label>
           <input
@@ -98,7 +100,7 @@ export default function ContactForm() {
           />
         </div>
         <div>
-          <label htmlFor="email" className="mb-1.5 block text-sm text-kodo-black">
+          <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-kodo-black">
             Email
           </label>
           <input
@@ -114,7 +116,7 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="subject" className="mb-1.5 block text-sm text-kodo-black">
+        <label htmlFor="subject" className="mb-1.5 block text-sm font-medium text-kodo-black">
           Subject
         </label>
         <input
@@ -129,7 +131,7 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className="mb-1.5 block text-sm text-kodo-black">
+        <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-kodo-black">
           Message
         </label>
         <textarea
@@ -137,7 +139,7 @@ export default function ContactForm() {
           name="message"
           required
           disabled={submitting}
-          rows={5}
+          rows={6}
           className={`${inputClass} resize-y`}
           placeholder="Your message..."
         />
@@ -148,21 +150,31 @@ export default function ContactForm() {
         disabled={submitting}
         className="kodo-btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        {submitting ? "Sending..." : "Send Message"}
-        {!submitting && (
-          <svg
-            className="ml-2 h-4 w-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M14 5l7 7m0 0l-7 7m7-7H3"
-            />
-          </svg>
+        {submitting ? (
+          <>
+            <svg className="mr-2 h-4 w-4 animate-spin" fill="none" viewBox="0 0 24 24">
+              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+            </svg>
+            Sending...
+          </>
+        ) : (
+          <>
+            Send Message
+            <svg
+              className="ml-2 h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M14 5l7 7m0 0l-7 7m7-7H3"
+              />
+            </svg>
+          </>
         )}
       </button>
     </form>

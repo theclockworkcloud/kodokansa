@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import SectionWrapper from "@/components/SectionWrapper";
+import ScrollReveal from "@/components/ScrollReveal";
 import PageHeader from "@/components/PageHeader";
 import NewsCard from "@/components/NewsCard";
 import { newsArticles } from "@/data/news";
@@ -20,11 +21,15 @@ export default function NewsPage() {
       />
 
       <SectionWrapper>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {newsArticles.map((article) => (
-            <NewsCard key={article.slug} article={article} />
-          ))}
-        </div>
+        <ScrollReveal stagger>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {newsArticles.map((article) => (
+              <div key={article.slug} className="reveal">
+                <NewsCard article={article} />
+              </div>
+            ))}
+          </div>
+        </ScrollReveal>
       </SectionWrapper>
     </>
   );

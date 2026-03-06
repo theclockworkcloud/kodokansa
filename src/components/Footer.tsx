@@ -12,19 +12,24 @@ export default function Footer() {
     <footer className="relative bg-kodo-black text-kodo-gray-400">
       <div className="kodo-line" />
 
-      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2">
-              <span className="font-serif text-xl text-kodo-red">柔</span>
-              <span className="text-sm font-medium text-kodo-white">
-                {siteConfig.shortName}
-              </span>
+              <span className="font-serif text-2xl text-kodo-red">柔</span>
+              <div>
+                <span className="text-sm font-medium text-kodo-white">
+                  {siteConfig.shortName}
+                </span>
+                <p className="font-display text-[10px] tracking-[0.15em] text-kodo-gold/50 uppercase">
+                  The Gentle Way
+                </p>
+              </div>
             </div>
-            <p className="mt-4 text-sm leading-relaxed">
+            <p className="mt-5 text-sm leading-relaxed">
               Dedicated to promoting judo as intended by founder Prof. Jigoro
-              Kano.
+              Kano — developing skill, discipline, and respect.
             </p>
           </div>
 
@@ -40,6 +45,7 @@ export default function Footer() {
                 ["/events", "Events"],
                 ["/news", "News"],
                 ["/gallery", "Gallery"],
+                ["/contact", "Contact"],
               ].map(([href, label]) => (
                 <li key={href}>
                   <Link
@@ -100,7 +106,7 @@ export default function Footer() {
                   href={siteConfig.social.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="transition-colors hover:text-kodo-white"
+                  className="rounded-full border border-white/[0.08] p-2.5 transition-all hover:border-kodo-gold/30 hover:text-kodo-white"
                   aria-label="Facebook"
                 >
                   <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
@@ -113,7 +119,7 @@ export default function Footer() {
                   href={siteConfig.social.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="transition-colors hover:text-kodo-white"
+                  className="rounded-full border border-white/[0.08] p-2.5 transition-all hover:border-kodo-gold/30 hover:text-kodo-white"
                   aria-label="Instagram"
                 >
                   <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
@@ -126,16 +132,19 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 flex items-center justify-between border-t border-white/[0.06] pt-6">
+        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/[0.06] pt-6 sm:flex-row">
           <p className="text-xs text-kodo-gray-500">
-            &copy; {new Date().getFullYear()} {siteConfig.name}
+            &copy; {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
           </p>
           <button
             onClick={scrollToTop}
-            className="text-xs text-kodo-gray-500 transition-colors hover:text-kodo-gold"
+            className="group flex items-center gap-1.5 text-xs text-kodo-gray-500 transition-colors hover:text-kodo-gold"
             aria-label="Back to top"
           >
-            Back to top &uarr;
+            Back to top
+            <svg className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+            </svg>
           </button>
         </div>
       </div>

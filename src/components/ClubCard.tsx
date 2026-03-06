@@ -7,19 +7,23 @@ interface ClubCardProps {
 
 export default function ClubCard({ club, compact = false }: ClubCardProps) {
   return (
-    <div className="kodo-card group p-6">
+    <div className="kodo-card group p-6 sm:p-8">
       {/* Header */}
-      <div className="mb-4 flex items-start justify-between">
-        <div>
-          <h3 className="font-serif text-xl text-kodo-black">
+      <div className="mb-4 flex items-start justify-between gap-4">
+        <div className="min-w-0">
+          <h3 className="font-serif text-xl text-kodo-black sm:text-2xl">
             {club.name}
           </h3>
-          <p className="mt-1 text-sm text-kodo-gray-400">
+          <p className="mt-1 flex items-center gap-1.5 text-sm text-kodo-gray-400">
+            <svg className="h-3.5 w-3.5 shrink-0 text-kodo-gold/60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
             {club.address}, {club.suburb}
           </p>
         </div>
         {club.established && (
-          <span className="shrink-0 text-xs text-kodo-gray-400">
+          <span className="shrink-0 rounded bg-kodo-gray-50 px-2.5 py-1 text-xs text-kodo-gray-400">
             Est. {club.established}
           </span>
         )}
@@ -27,56 +31,67 @@ export default function ClubCard({ club, compact = false }: ClubCardProps) {
 
       {/* Description */}
       {!compact && (
-        <p className="mb-5 text-sm leading-relaxed text-kodo-gray-500">
+        <p className="mb-5 text-[15px] leading-relaxed text-kodo-gray-500">
           {club.description}
         </p>
       )}
 
       {/* Schedule */}
       <div className="mb-4">
-        <h4 className="mb-2 text-xs tracking-[0.15em] text-kodo-gold uppercase">
+        <h4 className="mb-2.5 text-xs tracking-[0.15em] text-kodo-gold uppercase">
           Training Times
         </h4>
-        <div className="space-y-px">
-          {club.schedule.map((slot, i) => (
-            <div
-              key={i}
-              className="flex items-center gap-3 py-1.5 text-sm"
-            >
-              <span className="w-24 font-medium text-kodo-black">
-                {slot.day}
-              </span>
-              <span className="text-kodo-gray-500">
-                {slot.session}: {slot.time}
-              </span>
-            </div>
-          ))}
+        <div className="rounded-md bg-kodo-gray-50 p-3">
+          <div className="space-y-px">
+            {club.schedule.map((slot, i) => (
+              <div
+                key={i}
+                className="flex items-center gap-3 rounded px-2 py-1.5 text-sm odd:bg-white"
+              >
+                <span className="w-24 shrink-0 font-medium text-kodo-black">
+                  {slot.day}
+                </span>
+                <span className="text-kodo-gray-500">
+                  {slot.session}: {slot.time}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
       {/* Contact */}
       {(club.contact || club.contactPhone || club.contactEmail) && (
-        <div className="border-t border-kodo-gray-100 pt-4 space-y-1">
-          {club.contact && (
-            <p className="text-sm text-kodo-gray-400">
-              <span className="text-kodo-black">Contact:</span>{" "}
-              {club.contact}
-            </p>
-          )}
-          {club.contactPhone && (
-            <p className="text-sm text-kodo-gray-400">
-              <a href={`tel:${club.contactPhone.replace(/\s/g, "")}`} className="transition-colors hover:text-kodo-red">
+        <div className="border-t border-kodo-gray-100 pt-4">
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-1">
+            {club.contact && (
+              <p className="text-sm text-kodo-gray-400">
+                <span className="text-kodo-black">{club.contact}</span>
+              </p>
+            )}
+            {club.contactPhone && (
+              <a
+                href={`tel:${club.contactPhone.replace(/\s/g, "")}`}
+                className="inline-flex items-center gap-1 text-sm text-kodo-gray-400 transition-colors hover:text-kodo-red"
+              >
+                <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
                 {club.contactPhone}
               </a>
-            </p>
-          )}
-          {club.contactEmail && (
-            <p className="text-sm text-kodo-gray-400">
-              <a href={`mailto:${club.contactEmail}`} className="transition-colors hover:text-kodo-red">
+            )}
+            {club.contactEmail && (
+              <a
+                href={`mailto:${club.contactEmail}`}
+                className="inline-flex items-center gap-1 text-sm text-kodo-gray-400 transition-colors hover:text-kodo-red"
+              >
+                <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
                 {club.contactEmail}
               </a>
-            </p>
-          )}
+            )}
+          </div>
         </div>
       )}
     </div>

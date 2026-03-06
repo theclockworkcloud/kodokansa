@@ -58,6 +58,20 @@ body {
 }
 
 /* ──────────────────────────────────────────────
+   Scroll Progress Bar
+   ────────────────────────────────────────────── */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-kodo-red), var(--color-kodo-gold));
+  z-index: 100;
+  transform-origin: left;
+  transition: none;
+}
+
+/* ──────────────────────────────────────────────
    Decorative Line
    ────────────────────────────────────────────── */
 .kodo-line {
@@ -106,6 +120,12 @@ body {
   z-index: 1;
 }
 
+/* Asanoha (hemp leaf) geometric pattern */
+.kodo-asanoha {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath d='M20 0L40 20L20 40L0 20Z' fill='none' stroke='%23B8945F' stroke-width='0.3' opacity='0.08'/%3E%3Cpath d='M20 0L20 40M0 20L40 20' fill='none' stroke='%23B8945F' stroke-width='0.2' opacity='0.05'/%3E%3C/svg%3E");
+  background-size: 40px 40px;
+}
+
 /* ──────────────────────────────────────────────
    Section Divider — minimal gold line
    ────────────────────────────────────────────── */
@@ -121,38 +141,77 @@ body {
 .kodo-btn-primary {
   display: inline-flex;
   align-items: center;
-  padding: 0.75rem 2rem;
+  justify-content: center;
+  padding: 0.875rem 2.25rem;
   background: var(--color-kodo-red);
   color: white;
   font-weight: 500;
   font-size: 0.875rem;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
   border-radius: 0.25rem;
-  transition: all 0.25s var(--ease-out-expo);
+  transition: all 0.3s var(--ease-out-expo);
+  position: relative;
+  overflow: hidden;
+}
+
+.kodo-btn-primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.1) 50%, transparent 60%);
+  transform: translateX(-100%);
+  transition: transform 0.6s var(--ease-out-expo);
 }
 
 .kodo-btn-primary:hover {
   background: var(--color-kodo-red-light);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 16px var(--color-kodo-red-glow);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px var(--color-kodo-red-glow);
+}
+
+.kodo-btn-primary:hover::before {
+  transform: translateX(100%);
 }
 
 .kodo-btn-ghost {
   display: inline-flex;
   align-items: center;
-  padding: 0.75rem 2rem;
-  border: 1px solid var(--color-kodo-gray-300);
+  justify-content: center;
+  padding: 0.875rem 2.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   color: var(--color-kodo-white);
   font-weight: 500;
   font-size: 0.875rem;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
   border-radius: 0.25rem;
-  transition: all 0.25s var(--ease-out-expo);
+  transition: all 0.3s var(--ease-out-expo);
 }
 
 .kodo-btn-ghost:hover {
   border-color: var(--color-kodo-gold);
   color: var(--color-kodo-gold);
+  background: rgba(184, 148, 95, 0.06);
+  transform: translateY(-2px);
+}
+
+.kodo-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 2rem;
+  border: 1px solid var(--color-kodo-gray-200);
+  color: var(--color-kodo-black);
+  font-weight: 500;
+  font-size: 0.875rem;
+  letter-spacing: 0.02em;
+  border-radius: 0.25rem;
+  transition: all 0.3s var(--ease-out-expo);
+}
+
+.kodo-btn-outline:hover {
+  border-color: var(--color-kodo-red);
+  color: var(--color-kodo-red);
+  transform: translateY(-1px);
 }
 
 /* ──────────────────────────────────────────────
@@ -221,8 +280,8 @@ body {
    ────────────────────────────────────────────── */
 .reveal {
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
+  transform: translateY(20px);
+  transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
 }
 
 .reveal.revealed {
@@ -231,11 +290,35 @@ body {
 }
 
 .reveal-stagger > .reveal:nth-child(1) { transition-delay: 0ms; }
-.reveal-stagger > .reveal:nth-child(2) { transition-delay: 80ms; }
-.reveal-stagger > .reveal:nth-child(3) { transition-delay: 160ms; }
-.reveal-stagger > .reveal:nth-child(4) { transition-delay: 240ms; }
-.reveal-stagger > .reveal:nth-child(5) { transition-delay: 320ms; }
-.reveal-stagger > .reveal:nth-child(6) { transition-delay: 400ms; }
+.reveal-stagger > .reveal:nth-child(2) { transition-delay: 100ms; }
+.reveal-stagger > .reveal:nth-child(3) { transition-delay: 200ms; }
+.reveal-stagger > .reveal:nth-child(4) { transition-delay: 300ms; }
+.reveal-stagger > .reveal:nth-child(5) { transition-delay: 400ms; }
+.reveal-stagger > .reveal:nth-child(6) { transition-delay: 500ms; }
+
+/* Reveal from left */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+}
+
+.reveal-left.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Reveal scale */
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+}
+
+.reveal-scale.revealed {
+  opacity: 1;
+  transform: scale(1);
+}
 
 /* ──────────────────────────────────────────────
    Hero Entrance
@@ -243,7 +326,7 @@ body {
 @keyframes heroFadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(24px);
   }
   to {
     opacity: 1;
@@ -253,14 +336,14 @@ body {
 
 .hero-enter {
   opacity: 0;
-  animation: heroFadeIn 0.8s var(--ease-out-expo) forwards;
+  animation: heroFadeIn 1s var(--ease-out-expo) forwards;
 }
 
 .hero-enter-1 { animation-delay: 0ms; }
-.hero-enter-2 { animation-delay: 120ms; }
-.hero-enter-3 { animation-delay: 240ms; }
-.hero-enter-4 { animation-delay: 360ms; }
-.hero-enter-5 { animation-delay: 480ms; }
+.hero-enter-2 { animation-delay: 150ms; }
+.hero-enter-3 { animation-delay: 300ms; }
+.hero-enter-4 { animation-delay: 450ms; }
+.hero-enter-5 { animation-delay: 600ms; }
 
 /* ──────────────────────────────────────────────
    Enso / Kanji Keyframes
@@ -276,13 +359,30 @@ body {
 }
 
 @keyframes ensoPulse {
-  0%, 100% { opacity: 0.1; transform: translate(-50%, -50%) scale(1); }
-  50% { opacity: 0.2; transform: translate(-50%, -50%) scale(1.03); }
+  0%, 100% { opacity: 0.08; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.14; transform: translate(-50%, -50%) scale(1.02); }
 }
 
 @keyframes kanjiFloat {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  50% { transform: translateY(6px); opacity: 1; }
+}
+
+@keyframes brushStroke {
+  from { stroke-dashoffset: 1000; }
+  to { stroke-dashoffset: 0; }
+}
+
+/* Enso SVG animation */
+@keyframes ensoStroke {
+  from { stroke-dashoffset: 600; opacity: 0; }
+  10% { opacity: 1; }
+  to { stroke-dashoffset: 0; opacity: 0.12; }
 }
 
 /* ──────────────────────────────────────────────
@@ -297,6 +397,11 @@ body {
   margin-bottom: 0.75rem;
 }
 
+.prose-kodo p {
+  font-size: 0.9375rem;
+  line-height: 1.8;
+}
+
 .prose-kodo ul {
   list-style-type: disc;
   padding-left: 1.5rem;
@@ -304,4 +409,26 @@ body {
 
 .prose-kodo li {
   margin-bottom: 0.25rem;
+  font-size: 0.9375rem;
+}
+
+/* ──────────────────────────────────────────────
+   Stats counter animation
+   ────────────────────────────────────────────── */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.stat-number {
+  animation: countUp 0.6s var(--ease-out-expo) forwards;
+  opacity: 0;
+}
+
+/* ──────────────────────────────────────────────
+   Selection colour
+   ────────────────────────────────────────────── */
+::selection {
+  background: rgba(165, 36, 34, 0.15);
+  color: var(--color-kodo-black);
 }
