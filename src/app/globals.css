@@ -1,27 +1,27 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Cormorant Garamond", ui-serif, Georgia, serif;
-  --font-display: "Zen Kaku Gothic New", "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
+  --font-display: "Zen Kaku Gothic New", "Inter", ui-sans-serif, system-ui, sans-serif;
 
-  --color-kodo-red: #8B0000;
-  --color-kodo-red-light: #B91C1C;
-  --color-kodo-red-dark: #6B0000;
-  --color-kodo-black: #1A1A1A;
-  --color-kodo-white: #FAFAFA;
-  --color-kodo-gold: #C5975B;
-  --color-kodo-gold-light: #D4AB74;
-  --color-kodo-gray-50: #F8F8F8;
-  --color-kodo-gray-100: #F0F0F0;
-  --color-kodo-gray-200: #E0E0E0;
-  --color-kodo-gray-300: #C0C0C0;
-  --color-kodo-gray-400: #808080;
-  --color-kodo-gray-500: #606060;
-  --color-kodo-gray-600: #404040;
-  --color-kodo-gray-700: #303030;
-  --color-kodo-gray-800: #252525;
-  --color-kodo-gray-900: #1A1A1A;
+  --color-kodo-red: #A52422;
+  --color-kodo-red-light: #C03030;
+  --color-kodo-red-dark: #7A1A18;
+  --color-kodo-black: #141414;
+  --color-kodo-white: #FAFAF8;
+  --color-kodo-gold: #B8945F;
+  --color-kodo-gold-light: #CCAB7A;
+  --color-kodo-gray-50: #F7F7F5;
+  --color-kodo-gray-100: #EEEDE9;
+  --color-kodo-gray-200: #DDDBD5;
+  --color-kodo-gray-300: #B5B3AC;
+  --color-kodo-gray-400: #8A8880;
+  --color-kodo-gray-500: #656360;
+  --color-kodo-gray-600: #45433F;
+  --color-kodo-gray-700: #2E2D2A;
+  --color-kodo-gray-800: #222120;
+  --color-kodo-gray-900: #141414;
 }
 
 /* ──────────────────────────────────────────────
@@ -31,12 +31,13 @@
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out-sine: cubic-bezier(0.37, 0, 0.63, 1);
 
-  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-card-hover: 0 10px 25px rgba(0, 0, 0, 0.08), 0 4px 10px rgba(0, 0, 0, 0.04);
-  --shadow-dramatic: 0 20px 60px rgba(0, 0, 0, 0.15), 0 8px 20px rgba(0, 0, 0, 0.08);
+  --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-card-hover: 0 12px 32px rgba(0, 0, 0, 0.1);
+  --shadow-dramatic: 0 24px 64px rgba(0, 0, 0, 0.12);
 
-  --color-kodo-red-glow: rgba(139, 0, 0, 0.4);
-  --color-kodo-gold-glow: rgba(197, 151, 91, 0.3);
+  --color-kodo-red-glow: rgba(165, 36, 34, 0.3);
+  --color-kodo-gold-glow: rgba(184, 148, 95, 0.2);
 }
 
 /* ──────────────────────────────────────────────
@@ -57,35 +58,18 @@ body {
 }
 
 /* ──────────────────────────────────────────────
-   Decorative Line — upgraded with glow
+   Decorative Line
    ────────────────────────────────────────────── */
 .kodo-line {
-  position: relative;
-  height: 2px;
+  height: 1px;
   background: linear-gradient(
     90deg,
     transparent,
-    var(--color-kodo-red) 20%,
+    var(--color-kodo-gray-300) 30%,
     var(--color-kodo-gold) 50%,
-    var(--color-kodo-red) 80%,
+    var(--color-kodo-gray-300) 70%,
     transparent
   );
-}
-
-.kodo-line::after {
-  content: "";
-  position: absolute;
-  inset: -2px 10% -2px 10%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--color-kodo-red-glow) 30%,
-    var(--color-kodo-gold-glow) 50%,
-    var(--color-kodo-red-glow) 70%,
-    transparent
-  );
-  filter: blur(6px);
-  opacity: 0.7;
 }
 
 /* ──────────────────────────────────────────────
@@ -102,14 +86,8 @@ body {
 
 /* Seigaiha wave pattern */
 .kodo-wave {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='30'%3E%3Ccircle cx='30' cy='30' r='20' fill='none' stroke='%23C5975B' stroke-width='0.5' opacity='0.15'/%3E%3Ccircle cx='30' cy='30' r='14' fill='none' stroke='%23C5975B' stroke-width='0.5' opacity='0.1'/%3E%3Ccircle cx='0' cy='30' r='20' fill='none' stroke='%23C5975B' stroke-width='0.5' opacity='0.15'/%3E%3Ccircle cx='60' cy='30' r='20' fill='none' stroke='%23C5975B' stroke-width='0.5' opacity='0.15'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='30'%3E%3Ccircle cx='30' cy='30' r='20' fill='none' stroke='%23B8945F' stroke-width='0.4' opacity='0.12'/%3E%3Ccircle cx='30' cy='30' r='14' fill='none' stroke='%23B8945F' stroke-width='0.4' opacity='0.08'/%3E%3Ccircle cx='0' cy='30' r='20' fill='none' stroke='%23B8945F' stroke-width='0.4' opacity='0.12'/%3E%3Ccircle cx='60' cy='30' r='20' fill='none' stroke='%23B8945F' stroke-width='0.4' opacity='0.12'/%3E%3C/svg%3E");
   background-size: 60px 30px;
-}
-
-/* Asanoha star pattern */
-.kodo-asanoha {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M20 0L40 20L20 40L0 20Z' fill='none' stroke='%23C5975B' stroke-width='0.3' opacity='0.12'/%3E%3Cpath d='M20 0L20 40M0 20L40 20' fill='none' stroke='%23C5975B' stroke-width='0.3' opacity='0.08'/%3E%3C/svg%3E");
-  background-size: 40px 40px;
 }
 
 /* Grain noise overlay */
@@ -121,7 +99,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.025'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 256px 256px;
   pointer-events: none;
@@ -129,145 +107,73 @@ body {
 }
 
 /* ──────────────────────────────────────────────
-   Section Divider — gold lines + diamond
+   Section Divider — minimal gold line
    ────────────────────────────────────────────── */
-.kodo-section-divider {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  padding: 0.5rem 0;
-}
-
-.kodo-section-divider::before,
-.kodo-section-divider::after {
-  content: "";
-  flex: 1;
-  max-width: 6rem;
+.kodo-section-line {
+  width: 3rem;
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--color-kodo-gold)
-  );
-}
-
-.kodo-section-divider::after {
-  background: linear-gradient(
-    90deg,
-    var(--color-kodo-gold),
-    transparent
-  );
-}
-
-.kodo-section-divider .diamond {
-  width: 6px;
-  height: 6px;
   background: var(--color-kodo-gold);
-  transform: rotate(45deg);
-  flex-shrink: 0;
 }
 
 /* ──────────────────────────────────────────────
-   Buttons
+   Buttons — clean, confident
    ────────────────────────────────────────────── */
 .kodo-btn-primary {
-  position: relative;
   display: inline-flex;
   align-items: center;
-  padding: 0.75rem 1.75rem;
+  padding: 0.75rem 2rem;
   background: var(--color-kodo-red);
   color: white;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 0.875rem;
+  letter-spacing: 0.02em;
   border-radius: 0.25rem;
-  overflow: hidden;
-  transition: all 0.3s var(--ease-out-expo);
-  box-shadow: 0 2px 8px var(--color-kodo-red-glow);
+  transition: all 0.25s var(--ease-out-expo);
 }
 
 .kodo-btn-primary:hover {
   background: var(--color-kodo-red-light);
-  box-shadow: 0 4px 20px var(--color-kodo-red-glow);
   transform: translateY(-1px);
-}
-
-.kodo-btn-primary::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.15),
-    transparent
-  );
-  transition: left 0.5s var(--ease-out-expo);
-}
-
-.kodo-btn-primary:hover::after {
-  left: 100%;
+  box-shadow: 0 4px 16px var(--color-kodo-red-glow);
 }
 
 .kodo-btn-ghost {
   display: inline-flex;
   align-items: center;
-  padding: 0.75rem 1.75rem;
-  border: 1px solid rgba(197, 151, 91, 0.5);
-  color: var(--color-kodo-gold);
-  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border: 1px solid var(--color-kodo-gray-300);
+  color: var(--color-kodo-white);
+  font-weight: 500;
   font-size: 0.875rem;
+  letter-spacing: 0.02em;
   border-radius: 0.25rem;
-  transition: all 0.3s var(--ease-out-expo);
+  transition: all 0.25s var(--ease-out-expo);
 }
 
 .kodo-btn-ghost:hover {
   border-color: var(--color-kodo-gold);
-  background: rgba(197, 151, 91, 0.1);
-  box-shadow: 0 0 20px var(--color-kodo-gold-glow);
+  color: var(--color-kodo-gold);
 }
 
 /* ──────────────────────────────────────────────
-   Card Base
+   Card — borderless, elevated
    ────────────────────────────────────────────── */
 .kodo-card {
   position: relative;
   background: white;
-  border: 1px solid var(--color-kodo-gray-200);
   border-radius: 0.5rem;
   overflow: hidden;
-  box-shadow: var(--shadow-card);
+  box-shadow: var(--shadow-soft);
   transition: all 0.4s var(--ease-out-expo);
 }
 
-.kodo-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--color-kodo-red), var(--color-kodo-gold));
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s var(--ease-out-expo);
-}
-
 .kodo-card:hover {
-  border-color: transparent;
   box-shadow: var(--shadow-card-hover);
-  transform: translateY(-2px);
-}
-
-.kodo-card:hover::before {
-  transform: scaleX(1);
+  transform: translateY(-3px);
 }
 
 /* ──────────────────────────────────────────────
-   Link Animation — underline from left
+   Link Animation — underline grow
    ────────────────────────────────────────────── */
 .kodo-link {
   position: relative;
@@ -292,7 +198,7 @@ body {
 }
 
 /* ──────────────────────────────────────────────
-   Page Header — atmospheric
+   Page Header
    ────────────────────────────────────────────── */
 .kodo-page-header {
   position: relative;
@@ -307,7 +213,7 @@ body {
   background:
     radial-gradient(ellipse at 20% 80%, var(--color-kodo-red-glow) 0%, transparent 60%),
     radial-gradient(ellipse at 80% 20%, var(--color-kodo-gold-glow) 0%, transparent 50%);
-  opacity: 0.6;
+  opacity: 0.5;
 }
 
 /* ──────────────────────────────────────────────
@@ -315,8 +221,8 @@ body {
    ────────────────────────────────────────────── */
 .reveal {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s var(--ease-out-expo), transform 0.6s var(--ease-out-expo);
+  transform: translateY(16px);
+  transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
 }
 
 .reveal.revealed {
@@ -325,11 +231,11 @@ body {
 }
 
 .reveal-stagger > .reveal:nth-child(1) { transition-delay: 0ms; }
-.reveal-stagger > .reveal:nth-child(2) { transition-delay: 100ms; }
-.reveal-stagger > .reveal:nth-child(3) { transition-delay: 200ms; }
-.reveal-stagger > .reveal:nth-child(4) { transition-delay: 300ms; }
-.reveal-stagger > .reveal:nth-child(5) { transition-delay: 400ms; }
-.reveal-stagger > .reveal:nth-child(6) { transition-delay: 500ms; }
+.reveal-stagger > .reveal:nth-child(2) { transition-delay: 80ms; }
+.reveal-stagger > .reveal:nth-child(3) { transition-delay: 160ms; }
+.reveal-stagger > .reveal:nth-child(4) { transition-delay: 240ms; }
+.reveal-stagger > .reveal:nth-child(5) { transition-delay: 320ms; }
+.reveal-stagger > .reveal:nth-child(6) { transition-delay: 400ms; }
 
 /* ──────────────────────────────────────────────
    Hero Entrance
@@ -337,7 +243,7 @@ body {
 @keyframes heroFadeIn {
   from {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -351,10 +257,10 @@ body {
 }
 
 .hero-enter-1 { animation-delay: 0ms; }
-.hero-enter-2 { animation-delay: 150ms; }
-.hero-enter-3 { animation-delay: 300ms; }
-.hero-enter-4 { animation-delay: 450ms; }
-.hero-enter-5 { animation-delay: 600ms; }
+.hero-enter-2 { animation-delay: 120ms; }
+.hero-enter-3 { animation-delay: 240ms; }
+.hero-enter-4 { animation-delay: 360ms; }
+.hero-enter-5 { animation-delay: 480ms; }
 
 /* ──────────────────────────────────────────────
    Enso / Kanji Keyframes
@@ -370,11 +276,32 @@ body {
 }
 
 @keyframes ensoPulse {
-  0%, 100% { opacity: 0.15; transform: translate(-50%, -50%) scale(1); }
-  50% { opacity: 0.25; transform: translate(-50%, -50%) scale(1.05); }
+  0%, 100% { opacity: 0.1; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.2; transform: translate(-50%, -50%) scale(1.03); }
 }
 
 @keyframes kanjiFloat {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+  50% { transform: translateY(-6px); }
+}
+
+/* ──────────────────────────────────────────────
+   Prose for news articles
+   ────────────────────────────────────────────── */
+.prose-kodo h2 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--color-kodo-black);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose-kodo ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
+.prose-kodo li {
+  margin-bottom: 0.25rem;
 }

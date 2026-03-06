@@ -4,11 +4,11 @@ interface EventCardProps {
   event: JudoEvent;
 }
 
-const typeStyles: Record<JudoEvent["type"], { bar: string; text: string }> = {
-  competition: { bar: "bg-kodo-red", text: "text-kodo-red" },
-  training: { bar: "bg-kodo-gold", text: "text-kodo-gold" },
-  social: { bar: "bg-blue-500", text: "text-blue-600" },
-  grading: { bar: "bg-emerald-500", text: "text-emerald-600" },
+const typeColors: Record<JudoEvent["type"], string> = {
+  competition: "text-kodo-red",
+  training: "text-kodo-gold",
+  social: "text-blue-500",
+  grading: "text-emerald-500",
 };
 
 function formatDate(dateStr: string): string {
@@ -22,7 +22,7 @@ function formatDate(dateStr: string): string {
 }
 
 export default function EventCard({ event }: EventCardProps) {
-  const style = typeStyles[event.type];
+  const color = typeColors[event.type];
   const dateObj = new Date(event.date + "T00:00:00");
   const day = dateObj.getDate();
   const month = dateObj.toLocaleDateString("en-AU", { month: "short" });
@@ -30,18 +30,13 @@ export default function EventCard({ event }: EventCardProps) {
   return (
     <div
       className={`kodo-card group flex overflow-hidden ${
-        event.isPast ? "opacity-70" : ""
+        event.isPast ? "opacity-60" : ""
       }`}
     >
-      {/* Vertical type indicator bar */}
-      <div className={`w-1 shrink-0 ${style.bar}`} />
-
-      {/* Date badge — editorial Cormorant */}
+      {/* Date column */}
       <div className="flex shrink-0 flex-col items-center justify-center bg-kodo-black px-5 py-4 text-center">
-        <span className="font-serif text-3xl font-light leading-tight text-kodo-white">
-          {day}
-        </span>
-        <span className="font-display text-[10px] font-medium tracking-[0.2em] text-kodo-gold uppercase">
+        <span className="font-serif text-2xl text-kodo-white">{day}</span>
+        <span className="font-display text-[10px] tracking-[0.15em] text-kodo-gold/70 uppercase">
           {month}
         </span>
       </div>
@@ -49,24 +44,21 @@ export default function EventCard({ event }: EventCardProps) {
       {/* Content */}
       <div className="min-w-0 flex-1 p-5">
         <div className="mb-1 flex flex-wrap items-center gap-2">
-          <span className={`text-xs font-medium uppercase tracking-wider ${style.text}`}>
+          <span className={`text-xs tracking-wider uppercase ${color}`}>
             {event.type}
           </span>
           {event.isPast && (
-            <span className="rounded-full bg-kodo-gray-100 px-2 py-0.5 text-xs text-kodo-gray-500">
-              Past
-            </span>
+            <span className="text-xs text-kodo-gray-400">Past</span>
           )}
         </div>
 
-        <h3 className="font-serif text-lg font-semibold text-kodo-black">
+        <h3 className="font-serif text-lg text-kodo-black">
           {event.title}
         </h3>
 
-        <p className="mt-1 flex items-center text-sm text-kodo-gray-500">
-          {/* Gold map pin */}
+        <p className="mt-1 flex items-center text-sm text-kodo-gray-400">
           <svg
-            className="mr-1.5 inline-block h-4 w-4 text-kodo-gold"
+            className="mr-1.5 inline-block h-3.5 w-3.5 text-kodo-gold/60"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -92,14 +84,14 @@ export default function EventCard({ event }: EventCardProps) {
           {event.endDate && ` — ${formatDate(event.endDate)}`}
         </p>
 
-        <p className="mt-2 text-sm leading-relaxed text-kodo-gray-600">
+        <p className="mt-2 text-sm leading-relaxed text-kodo-gray-500">
           {event.description}
         </p>
 
         {event.registrationUrl && !event.isPast && (
           <a
             href={event.registrationUrl}
-            className="kodo-link mt-3 inline-block text-sm font-medium text-kodo-red"
+            className="mt-3 inline-block text-sm text-kodo-red transition-colors hover:text-kodo-red-light"
           >
             Register &rarr;
           </a>

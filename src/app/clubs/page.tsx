@@ -7,7 +7,7 @@ import { clubs } from "@/data/clubs";
 export const metadata: Metadata = {
   title: "Clubs",
   description:
-    "Find a Kodokan Judo club in Adelaide, South Australia. Three clubs across the metropolitan area welcoming all ages and experience levels.",
+    "Find a Kodokan Judo club in Adelaide, South Australia. Five clubs across the metropolitan area welcoming all ages and experience levels.",
 };
 
 export default function ClubsPage() {
@@ -15,32 +15,31 @@ export default function ClubsPage() {
     <>
       <PageHeader
         title="Our Clubs"
-        subtitle="Five clubs across Adelaide, all welcoming beginners and experienced judoka alike. Find the one closest to you and come try a class."
+        subtitle="Five clubs across Adelaide, all welcoming beginners and experienced judoka alike."
         kanji="館"
       />
 
       <SectionWrapper>
-        <div className="space-y-6">
+        <div className="space-y-4">
           {clubs.map((club) => (
             <ClubCard key={club.id} club={club} />
           ))}
         </div>
 
-        <div className="mt-12 rounded-lg border border-kodo-gold/30 bg-kodo-gold/5 p-6 text-center">
-          <h3 className="font-serif text-lg font-bold text-kodo-black">
+        <div className="mt-12 rounded-lg bg-kodo-gray-50 p-8 text-center">
+          <h3 className="font-serif text-lg text-kodo-black">
             Interested in Starting Judo?
           </h3>
-          <p className="mt-2 text-sm text-kodo-gray-600">
+          <p className="mt-2 text-sm text-kodo-gray-500">
             All our clubs offer beginner-friendly sessions. Simply show up to any
             training session, or{" "}
             <a
               href="/contact"
-              className="font-medium text-kodo-red hover:text-kodo-red-light transition-colors"
+              className="text-kodo-red transition-colors hover:text-kodo-red-light"
             >
               contact us
             </a>{" "}
-            for more information. No experience necessary — just wear
-            comfortable clothes for your first session.
+            for more information.
           </p>
         </div>
       </SectionWrapper>

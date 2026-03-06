@@ -22,37 +22,40 @@ export default function EventsPage() {
         kanji="試"
       />
 
-      {/* Upcoming Events */}
       <SectionWrapper>
-        <h2 className="font-serif text-2xl font-bold text-kodo-black">
+        <p className="font-display text-xs tracking-[0.3em] text-kodo-gold uppercase">
+          Coming Up
+        </p>
+        <h2 className="mt-3 font-serif text-2xl text-kodo-black">
           Upcoming Events
         </h2>
-        <div className="kodo-section-divider mt-2 max-w-[6rem]"><span className="diamond" /></div>
+        <div className="kodo-section-line mt-5" />
         <div className="mt-8 space-y-4">
           {upcoming.map((event) => (
             <EventCard key={event.id} event={event} />
           ))}
         </div>
         {upcoming.length === 0 && (
-          <p className="mt-8 text-center text-kodo-gray-400">
-            No upcoming events at the moment. Check back soon!
+          <p className="mt-8 text-center text-sm text-kodo-gray-400">
+            No upcoming events at the moment. Check back soon.
           </p>
         )}
       </SectionWrapper>
 
-      {/* Past Events */}
       {past.length > 0 && (
-        <SectionWrapper className="bg-kodo-gray-50">
-          <h2 className="font-serif text-2xl font-bold text-kodo-black">
-            Past Events
-          </h2>
-          <div className="kodo-section-divider mt-2 max-w-[6rem]"><span className="diamond" /></div>
-          <div className="mt-8 space-y-4">
-            {past.map((event) => (
-              <EventCard key={event.id} event={event} />
-            ))}
+        <section className="bg-kodo-gray-50 py-20 lg:py-24">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <h2 className="font-serif text-2xl text-kodo-black">
+              Past Events
+            </h2>
+            <div className="kodo-section-line mt-5" />
+            <div className="mt-8 space-y-4">
+              {past.map((event) => (
+                <EventCard key={event.id} event={event} />
+              ))}
+            </div>
           </div>
-        </SectionWrapper>
+        </section>
       )}
     </>
   );

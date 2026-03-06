@@ -5,54 +5,45 @@ export default function Hero() {
     <section className="relative overflow-hidden bg-kodo-black">
       {/* Layered background */}
       <div className="absolute inset-0">
-        {/* Warm red spotlight — lower left */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_80%,rgba(139,0,0,0.35)_0%,transparent_60%)]" />
-        {/* Cool gold accent — upper right */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_85%_15%,rgba(197,151,91,0.2)_0%,transparent_50%)]" />
-        {/* Wave pattern */}
-        <div className="absolute inset-0 kodo-wave opacity-40" />
-        {/* Grain */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_80%,rgba(165,36,34,0.25)_0%,transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_85%_15%,rgba(184,148,95,0.15)_0%,transparent_50%)]" />
+        <div className="absolute inset-0 kodo-wave opacity-30" />
         <div className="absolute inset-0 kodo-grain" />
       </div>
 
-      {/* 3 animated enso circles */}
+      {/* Enso circles — subtle */}
       <div
-        className="absolute left-[65%] top-[45%] h-[28rem] w-[28rem] rounded-full border border-kodo-red/20"
-        style={{ animation: "ensoRotate 60s linear infinite" }}
+        className="absolute left-[60%] top-[50%] h-[32rem] w-[32rem] rounded-full border border-white/[0.04]"
+        style={{ animation: "ensoRotate 80s linear infinite" }}
       />
       <div
-        className="absolute left-[65%] top-[45%] h-[22rem] w-[22rem] rounded-full border border-kodo-gold/15"
-        style={{ animation: "ensoCounterRotate 45s linear infinite" }}
-      />
-      <div
-        className="absolute left-[65%] top-[45%] h-[16rem] w-[16rem] rounded-full border border-kodo-white/5"
-        style={{ animation: "ensoPulse 8s ease-in-out infinite" }}
+        className="absolute left-[60%] top-[50%] h-[22rem] w-[22rem] rounded-full border border-kodo-gold/[0.08]"
+        style={{ animation: "ensoCounterRotate 55s linear infinite" }}
       />
 
-      <div className="relative mx-auto max-w-6xl px-4 py-32 sm:px-6 sm:py-40 lg:px-8 lg:py-48">
+      <div className="relative mx-auto max-w-6xl px-4 py-28 sm:px-6 sm:py-36 lg:px-8 lg:py-44">
         <div className="max-w-2xl">
-          {/* Kanji — large, floating, gradient fade */}
+          {/* Kanji — large, atmospheric */}
           <div
-            className="hero-enter hero-enter-1 mb-4 font-serif text-[clamp(10rem,25vw,20rem)] leading-none text-kodo-red/20 select-none"
-            style={{ animation: "heroFadeIn 0.8s var(--ease-out-expo) forwards, kanjiFloat 6s ease-in-out infinite 1s" }}
+            className="hero-enter hero-enter-1 mb-2 font-serif text-[clamp(8rem,22vw,16rem)] leading-[0.85] text-kodo-red/15 select-none"
+            style={{ animation: "heroFadeIn 0.8s var(--ease-out-expo) forwards, kanjiFloat 8s ease-in-out infinite 1s" }}
           >
             柔道
           </div>
 
           {/* Heading */}
-          <h1 className="hero-enter hero-enter-2 font-serif text-5xl font-light tracking-tight text-kodo-white sm:text-6xl lg:text-7xl">
+          <h1 className="hero-enter hero-enter-2 font-serif text-5xl text-kodo-white sm:text-6xl lg:text-7xl">
             Kodokan Judo
           </h1>
 
-          {/* Subtitle — Zen Kaku, uppercase, wide tracking, gold */}
-          <p className="hero-enter hero-enter-3 mt-3 font-display text-sm font-medium tracking-[0.3em] text-kodo-gold uppercase sm:text-base">
+          {/* Subtitle */}
+          <p className="hero-enter hero-enter-3 mt-3 font-display text-sm tracking-[0.25em] text-kodo-gold/80 uppercase sm:text-base">
             South Australia
           </p>
 
-          <p className="hero-enter hero-enter-4 mt-8 max-w-lg text-lg leading-relaxed text-kodo-gray-300">
+          <p className="hero-enter hero-enter-4 mt-8 max-w-md text-base leading-relaxed text-kodo-gray-300">
             Promoting judo as intended by founder Prof. Jigoro Kano — at both
-            grassroots and elite level. A not-for-profit association serving the
-            South Australian judo community.
+            grassroots and elite level.
           </p>
 
           <div className="hero-enter hero-enter-5 mt-10 flex flex-wrap gap-4">
@@ -69,8 +60,8 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Bottom — gradient fade from black to white */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-kodo-white" />
+      {/* Bottom fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-kodo-white" />
     </section>
   );
 }
